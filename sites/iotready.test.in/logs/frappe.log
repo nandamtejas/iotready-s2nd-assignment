@@ -1,0 +1,741 @@
+2023-01-22 16:34:00,374 ERROR frappe Could not take error snapshot: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+Site: iotready.test.in
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 4754319989062154423
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 592, in get_values
+    out = self._get_values_from_table(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 809, in _get_values_from_table
+    query = frappe.qb.engine.get_query(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 513, in get_query
+    criterion = self.build_conditions(table, filters, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 369, in build_conditions
+    criterion = self.dict_query(filters=filters, table=table, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 328, in dict_query
+    _operator = self.OPERATOR_MAP["="]
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 4754319989062154423
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/app.py", line 55, in application
+    init_request(request)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/app.py", line 132, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 34, in __init__
+    self.set_session()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 68, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 117, in __init__
+    self.make_session(resume=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/sessions.py", line 238, in __init__
+    self.resume()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/sessions.py", line 310, in resume
+    validate_ip_address(self.user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 414, in validate_ip_address
+    frappe.get_cached_value("User", user, user_fields, as_dict=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1150, in get_cached_value
+    doc = get_cached_doc(doctype, name)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1091, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1184, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    controller = get_controller(doctype)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/base_document.py", line 77, in get_controller
+    return _get_controller()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/base_document.py", line 47, in _get_controller
+    module_name, custom = frappe.db.get_value(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 495, in get_value
+    result = self.get_values(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 612, in get_values
+    out = self.get_values_from_single(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 662, in get_values_from_single
+    r = frappe.qb.engine.get_query(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 513, in get_query
+    criterion = self.build_conditions(table, filters, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 369, in build_conditions
+    criterion = self.dict_query(filters=filters, table=table, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 328, in dict_query
+    _operator = self.OPERATOR_MAP["="]
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 4754319989062154423
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/error.py", line 105, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.10/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+2023-01-22 16:41:26,607 ERROR frappe Could not take error snapshot: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+Site: iotready.test.in
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 9190285372629758283
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 592, in get_values
+    out = self._get_values_from_table(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 809, in _get_values_from_table
+    query = frappe.qb.engine.get_query(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 513, in get_query
+    criterion = self.build_conditions(table, filters, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 369, in build_conditions
+    criterion = self.dict_query(filters=filters, table=table, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 328, in dict_query
+    _operator = self.OPERATOR_MAP["="]
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 9190285372629758283
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/app.py", line 55, in application
+    init_request(request)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/app.py", line 132, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 34, in __init__
+    self.set_session()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 68, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 117, in __init__
+    self.make_session(resume=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/sessions.py", line 238, in __init__
+    self.resume()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/sessions.py", line 310, in resume
+    validate_ip_address(self.user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 414, in validate_ip_address
+    frappe.get_cached_value("User", user, user_fields, as_dict=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1150, in get_cached_value
+    doc = get_cached_doc(doctype, name)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1091, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1184, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    controller = get_controller(doctype)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/base_document.py", line 77, in get_controller
+    return _get_controller()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/base_document.py", line 47, in _get_controller
+    module_name, custom = frappe.db.get_value(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 495, in get_value
+    result = self.get_values(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 612, in get_values
+    out = self.get_values_from_single(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 662, in get_values_from_single
+    r = frappe.qb.engine.get_query(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 513, in get_query
+    criterion = self.build_conditions(table, filters, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 369, in build_conditions
+    criterion = self.dict_query(filters=filters, table=table, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 328, in dict_query
+    _operator = self.OPERATOR_MAP["="]
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 9190285372629758283
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/error.py", line 105, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.10/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+2023-01-22 16:57:50,733 ERROR frappe Could not take error snapshot: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+Site: iotready.test.in
+Form Dict: {}
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: -4760013895331487652
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 592, in get_values
+    out = self._get_values_from_table(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 809, in _get_values_from_table
+    query = frappe.qb.engine.get_query(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 513, in get_query
+    criterion = self.build_conditions(table, filters, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 369, in build_conditions
+    criterion = self.dict_query(filters=filters, table=table, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 328, in dict_query
+    _operator = self.OPERATOR_MAP["="]
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: -4760013895331487652
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/app.py", line 55, in application
+    init_request(request)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/app.py", line 132, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 34, in __init__
+    self.set_session()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 68, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 117, in __init__
+    self.make_session(resume=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/sessions.py", line 238, in __init__
+    self.resume()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/sessions.py", line 310, in resume
+    validate_ip_address(self.user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/auth.py", line 414, in validate_ip_address
+    frappe.get_cached_value("User", user, user_fields, as_dict=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1150, in get_cached_value
+    doc = get_cached_doc(doctype, name)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1091, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1184, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/document.py", line 72, in get_doc
+    controller = get_controller(doctype)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/base_document.py", line 77, in get_controller
+    return _get_controller()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/model/base_document.py", line 47, in _get_controller
+    module_name, custom = frappe.db.get_value(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 495, in get_value
+    result = self.get_values(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 612, in get_values
+    out = self.get_values_from_single(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 662, in get_values_from_single
+    r = frappe.qb.engine.get_query(
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 513, in get_query
+    criterion = self.build_conditions(table, filters, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 369, in build_conditions
+    criterion = self.dict_query(filters=filters, table=table, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 328, in dict_query
+    _operator = self.OPERATOR_MAP["="]
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: 5740354900026072187
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 55, in wrapper
+    return frappe.local.request_cache[func][args_key]
+KeyError: -4760013895331487652
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/error.py", line 47, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/error.py", line 105, in get_snapshot
+    vars = cgitb.scanvars(reader, frame, locals)
+  File "/usr/lib/python3.10/cgitb.py", line 88, in scanvars
+    value = getattr(parent, token, __UNDEF__)
+  File "/usr/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/query.py", line 194, in OPERATOR_MAP
+    if frappe.get_hooks("filters_config"):
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1486, in get_hooks
+    hooks = _dict(cache().get_value("app_hooks", _load_app_hooks))
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/redis_wrapper.py", line 81, in get_value
+    val = generator()
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1447, in _load_app_hooks
+    apps = [app_name] if app_name else get_installed_apps(sort=True)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/utils/caching.py", line 57, in wrapper
+    return_val = func(*args, **kwargs)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/__init__.py", line 1412, in get_installed_apps
+    installed = json.loads(db.get_global("installed_apps") or "[]")
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 960, in get_global
+    return self.get_default(key, user)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 964, in get_default
+    d = self.get_defaults(key, parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 980, in get_defaults
+    defaults = frappe.defaults.get_defaults_for(parent)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/defaults.py", line 218, in get_defaults_for
+    frappe.qb.from_(table)
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/query_builder/utils.py", line 76, in execute_query
+    return frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+  File "/home/nandamtejas/frappe-project/frappe-bench/apps/frappe/frappe/database/database.py", line 218, in sql
+    self._cursor.execute(query, values)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/nandamtejas/frappe-project/frappe-bench/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table '_3951b53ef5900d31.tabDefaultValue' doesn't exist")

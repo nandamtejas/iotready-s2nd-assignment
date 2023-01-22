@@ -1,0 +1,39 @@
+16:26:55 Worker rq:worker:c4eeb1dcab274352901bc6182f1800c8: started, version 1.11.1
+16:26:55 Subscribing to channel rq:pubsub:c4eeb1dcab274352901bc6182f1800c8
+16:26:55 *** Listening on home-nandamtejas-frappe-project-frappe-bench:short, home-nandamtejas-frappe-project-frappe-bench:default, home-nandamtejas-frappe-project-frappe-bench:long...
+16:26:55 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:short
+16:26:55 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:default
+16:26:55 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:long
+16:27:12 Warm shut down requested
+16:27:12 Unsubscribing from channel rq:pubsub:c4eeb1dcab274352901bc6182f1800c8
+16:27:42 Worker rq:worker:8d2b815ef0d94177934b88323b82305d: started, version 1.11.1
+16:27:42 Subscribing to channel rq:pubsub:8d2b815ef0d94177934b88323b82305d
+16:27:42 *** Listening on home-nandamtejas-frappe-project-frappe-bench:short, home-nandamtejas-frappe-project-frappe-bench:default, home-nandamtejas-frappe-project-frappe-bench:long...
+16:27:42 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:short
+16:27:42 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:default
+16:27:42 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:long
+16:27:48 Warm shut down requested
+16:27:48 Unsubscribing from channel rq:pubsub:8d2b815ef0d94177934b88323b82305d
+16:33:53 Worker rq:worker:65db7c16862246d99388864c2ebb1e9f: started, version 1.11.1
+16:33:53 Subscribing to channel rq:pubsub:65db7c16862246d99388864c2ebb1e9f
+16:33:53 *** Listening on home-nandamtejas-frappe-project-frappe-bench:short, home-nandamtejas-frappe-project-frappe-bench:default, home-nandamtejas-frappe-project-frappe-bench:long...
+16:33:53 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:short
+16:33:53 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:default
+16:33:53 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:long
+16:36:34 Warm shut down requested
+16:41:23 Worker rq:worker:88a6af5d58cf42539b92e762a5c0ae19: started, version 1.11.1
+16:41:23 Subscribing to channel rq:pubsub:88a6af5d58cf42539b92e762a5c0ae19
+16:41:23 *** Listening on home-nandamtejas-frappe-project-frappe-bench:short, home-nandamtejas-frappe-project-frappe-bench:default, home-nandamtejas-frappe-project-frappe-bench:long...
+16:41:23 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:short
+16:41:23 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:default
+16:41:23 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:long
+16:42:23 Warm shut down requested
+16:42:23 Unsubscribing from channel rq:pubsub:88a6af5d58cf42539b92e762a5c0ae19
+16:57:39 Worker rq:worker:50fb9a0edcee4811974daeb65161663e: started, version 1.11.1
+16:57:39 Subscribing to channel rq:pubsub:50fb9a0edcee4811974daeb65161663e
+16:57:39 *** Listening on home-nandamtejas-frappe-project-frappe-bench:short, home-nandamtejas-frappe-project-frappe-bench:default, home-nandamtejas-frappe-project-frappe-bench:long...
+16:57:39 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:short
+16:57:39 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:default
+16:57:39 Cleaning registries for queue: home-nandamtejas-frappe-project-frappe-bench:long
+16:58:07 Warm shut down requested
+16:58:07 Unsubscribing from channel rq:pubsub:50fb9a0edcee4811974daeb65161663e

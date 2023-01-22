@@ -1,0 +1,12 @@
+{
+    "erpnext": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "550daf21089f9a05cfe7997e6e1e470dd19ee829",
+            "branch": "version-13"
+        },
+        "required": [],
+        "idx": 1,
+        "version": "13.43.2"
+    }
+}
