@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include iotready *.css
+recursive-include iotready *.csv
+recursive-include iotready *.html
+recursive-include iotready *.ico
+recursive-include iotready *.js
+recursive-include iotready *.json
+recursive-include iotready *.md
+recursive-include iotready *.png
+recursive-include iotready *.py
+recursive-include iotready *.svg
+recursive-include iotready *.txt
+recursive-exclude iotready *.pyc
